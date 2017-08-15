@@ -97,6 +97,7 @@
     "postcss-selector-matches": "^2.0.5",
     "postcss-selector-not": "^2.0.0",
     "pre-commit": "^1.2.2",
+    "protractor": "^5.1.2",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.5.1",
     "react-deep-force-update": "^2.0.1",
@@ -112,7 +113,8 @@
     "webpack-bundle-analyzer": "^2.4.0",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
-    "write-file-webpack-plugin": "^4.0.2"
+    "write-file-webpack-plugin": "^4.0.2",
+    "yarn": "^0.27.5"
   },
   "babel": {
     "presets": [
