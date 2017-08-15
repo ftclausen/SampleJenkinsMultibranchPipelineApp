@@ -34,6 +34,7 @@ stage( 'Unit and E2E Tests' ) {
 
 def prepare() {
   sh '''
+  npm install
   webdriver-manager start &
   yarn start &
   '''
