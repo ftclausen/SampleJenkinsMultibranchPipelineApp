@@ -40,12 +40,12 @@ def prepare() {
 }
 def unit() {
   // Actually run unit tests here
-  sh 'yarn test'
+  sh './node_modules/.bin/yarn test'
 }
 
 def e2e() {
   // Actually run end-to-end tests here
-  sh 'protractor test/e2e/conf.js'
+  sh './node_modules/.bin/protractor test/e2e/conf.js'
 }
 
 // Utils
