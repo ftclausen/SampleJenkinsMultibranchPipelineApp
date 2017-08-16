@@ -40,8 +40,8 @@ def prepare() {
   source ~/.nvm/nvm.sh
   nvm install 6.10.2
   npm install
-  webdriver-manager start &
-  yarn start &
+  ./node_modules/.bin/webdriver-manager start &
+  ./node_modules/.bin/yarn start &
   '''
 }
 def unit() {
