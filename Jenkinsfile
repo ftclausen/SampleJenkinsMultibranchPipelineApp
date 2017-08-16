@@ -10,6 +10,7 @@ testResults = [
 
 stage( 'Unit and E2E Tests' ) {
   parallel(
+    /*
     "Unit": {
       node( 'ultra-e2e-v2' ) {
         gitCheckout( true )
@@ -18,6 +19,7 @@ stage( 'Unit and E2E Tests' ) {
         }
       }
     },
+    */
     "E2E": {
       node( 'ultra-commit-pipeline-v3' ) {
         gitCheckout( false )
@@ -40,6 +42,7 @@ def prepare() {
   source ~/.nvm/nvm.sh
   nvm install 6.10.2
   npm install
+  ./node_modules/.bin/webdriver-manager update
   ./node_modules/.bin/webdriver-manager start &
   ./node_modules/.bin/yarn start &
   '''
