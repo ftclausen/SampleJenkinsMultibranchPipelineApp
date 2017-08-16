@@ -34,8 +34,6 @@ stage( 'Unit and E2E Tests' ) {
 
 def prepare() {
   sh '''#!/usr/bin/env bash
-  echo $PWD
-  ls -l
   export NVM_DIR="$HOME/.nvm"
   # Don't do this in prod - use container images with Node already configured
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
@@ -128,7 +126,7 @@ def gitCheckout( showInChangelog ) {
   checkout changelog: showInChangelog, scm: [
     $class: 'GitSCM',
     branches: [[ name: env.BRANCH_NAME ]],
-    browser: [ $class: 'Stash', repoUrl: 'https://stash.bbpd.io/users/fclausen/repos/multibranch-test' ],
+    browser: [ $class: 'Stash', repoUrl: 'ssh://stash.bbpd.io/~fclausen/samplejenkinsmultibranchpipelineapp.git' ],
     extensions: [
       [ $class: 'CloneOption', noTags: true ],
       [ $class: 'PruneStaleBranch' ],
@@ -136,7 +134,7 @@ def gitCheckout( showInChangelog ) {
     ],
     userRemoteConfigs: [[
       credentialsId: 'jenkins-stash',
-      url: 'ssh://git@stash.bbpd.io/~fclausen/multibranch-test.git',
+      url: 'ssh://stash.bbpd.io/~fclausen/samplejenkinsmultibranchpipelineapp.git',
     ]]
   ]
 }
