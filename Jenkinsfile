@@ -36,6 +36,7 @@ def prepare() {
   sh '''#!/usr/bin/env bash
   set -x
   # Don't do this in prod - use container images with Node already configured
+  export NVM_DIR="$HOME/.nvm"
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
   source ~/.nvm/nvm.sh
   nvm install 6.10.2
