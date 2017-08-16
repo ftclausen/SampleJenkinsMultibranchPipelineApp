@@ -46,12 +46,18 @@ def prepare() {
 }
 def unit() {
   // Actually run unit tests here
-  sh './node_modules/.bin/yarn test'
+  sh '''#!/usr/bin/env bash
+    source ~/.nvm/nvm.sh
+    ./node_modules/.bin/yarn test
+  '''
 }
 
 def e2e() {
   // Actually run end-to-end tests here
-  sh './node_modules/.bin/protractor test/e2e/conf.js'
+  sh '''#!/usr/bin/env bash
+    source ~/.nvm/nvm.sh
+    ./node_modules/.bin/protractor test/e2e/conf.js
+  '''
 }
 
 // Utils
