@@ -43,8 +43,8 @@ def prepare() {
   nvm install 6.10.2
   npm install
   ./node_modules/.bin/webdriver-manager update
-  ./node_modules/.bin/webdriver-manager start &
-  ./node_modules/.bin/yarn start &
+  nohup ./node_modules/.bin/webdriver-manager start &
+  nohup ./node_modules/.bin/yarn start &
   '''
 }
 def unit() {
