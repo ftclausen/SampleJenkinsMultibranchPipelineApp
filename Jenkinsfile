@@ -15,16 +15,16 @@ envVars = [
 
 stage( 'Unit and E2E Tests' ) {
   parallel(
-    /*
     "Unit": {
       node( 'ultra-commit-pipeline-v3' ) {
-        gitCheckout( true )
-        recordTestResults(TestType.UNIT) {
-          unit()
+        withEnv(envVars) {
+          gitCheckout( true )
+          recordTestResults(TestType.UNIT) {
+            unit()
+          }
         }
       }
     },
-    */
     "E2E": {
       node( 'ultra-e2e-v2' ) {
         withEnv(envVars) {
@@ -68,8 +68,6 @@ def e2e() {
   // Actually run end-to-end tests here
   sh '''#!/usr/bin/env bash
     source ~/.nvm/nvm.sh
-    echo "====> Sleeping..."
-    sleep 10
     ps auxww | grep selenium-server
     ./node_modules/.bin/protractor test/e2e/conf.js
   '''
