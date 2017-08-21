@@ -12,7 +12,7 @@ stage( 'Unit and E2E Tests' ) {
   parallel(
     /*
     "Unit": {
-      node( 'ultra-e2e-v2' ) {
+      node( 'ultra-commit-pipeline-v3' ) {
         gitCheckout( true )
         recordTestResults(TestType.UNIT) {
           unit()
@@ -21,7 +21,7 @@ stage( 'Unit and E2E Tests' ) {
     },
     */
     "E2E": {
-      node( 'ultra-commit-pipeline-v3' ) {
+      node( 'ultra-e2e-v2' ) {
         gitCheckout( false )
         recordTestResults(TestType.E2E) {
           prepare()
