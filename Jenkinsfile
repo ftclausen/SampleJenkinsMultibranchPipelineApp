@@ -54,6 +54,7 @@ def prepare() {
   nohup ./node_modules/.bin/webdriver-manager start &
   nohup ./node_modules/.bin/yarn start &
   ./start_xvfb.sh
+  ./wait_for_webdriver_manager.sh
   '''
 }
 def unit() {
