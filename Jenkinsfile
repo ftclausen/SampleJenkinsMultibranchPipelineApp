@@ -59,6 +59,7 @@ def prepare() {
 def unit() {
   // Actually run unit tests here
   sh '''#!/usr/bin/env bash
+    set -e
     source ~/.nvm/nvm.sh
     ./node_modules/.bin/yarn test
   '''
@@ -67,6 +68,7 @@ def unit() {
 def e2e() {
   // Actually run end-to-end tests here
   sh '''#!/usr/bin/env bash
+    set -e
     source ~/.nvm/nvm.sh
     ps auxww | grep selenium-server
     ./node_modules/.bin/protractor test/e2e/conf.js
@@ -119,7 +121,7 @@ def sendNotifications() {
 
 def notifyStash() {
   println "NOTIFY: Sending notification of: ${currentBuild.result}"
-  // step( [ $class: 'StashNotifier', credentialsId: 'jenkins-notify' ] )
+  step( [ $class: 'StashNotifier', credentialsId: 'jenkins-notify' ] )
 }
 
 def notifySlack() {
