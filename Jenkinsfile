@@ -20,6 +20,7 @@ stage( 'Unit and E2E Tests' ) {
         withEnv(envVars) {
           gitCheckout( true )
           recordTestResults(TestType.UNIT) {
+            prepare()
             unit()
           }
         }
