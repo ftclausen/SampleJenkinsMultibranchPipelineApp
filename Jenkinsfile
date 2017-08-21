@@ -59,6 +59,7 @@ def e2e() {
   // Actually run end-to-end tests here
   sh '''#!/usr/bin/env bash
     source ~/.nvm/nvm.sh
+    ps auxww | grep selenium-server
     ./node_modules/.bin/protractor test/e2e/conf.js
   '''
 }
