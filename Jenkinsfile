@@ -8,6 +8,11 @@ testResults = [
   (TestType.E2E): JobState.INPROGRESS
 ]
 
+envVars = [
+  'DISPLAY=:0',
+  'LD_LIBRARY_PATH=/opt/google/chrome/lib'
+] 
+
 stage( 'Unit and E2E Tests' ) {
   parallel(
     /*
@@ -22,10 +27,12 @@ stage( 'Unit and E2E Tests' ) {
     */
     "E2E": {
       node( 'ultra-e2e-v2' ) {
-        gitCheckout( false )
-        recordTestResults(TestType.E2E) {
-          prepare()
-          e2e()
+        withEnv(envVars) {
+          gitCheckout( false )
+          recordTestResults(TestType.E2E) {
+            prepare()
+            e2e()
+          }
         }
       }
     }
@@ -36,6 +43,7 @@ stage( 'Unit and E2E Tests' ) {
 
 def prepare() {
   sh '''#!/usr/bin/env bash
+  set -e
   export NVM_DIR="$HOME/.nvm"
   # Don't do this in prod - use container images with Node already configured
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
