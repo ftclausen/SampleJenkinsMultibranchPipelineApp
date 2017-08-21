@@ -4,10 +4,10 @@ timeout=60
 while :; do
   # Use some literal character class on the 444[4] to avoid grep matching itself.
   if netstat -tnlp | grep :444[4]; then 
-    echo "Started"
+    echo "Started webdriver-manager"
     exit 0
   else
-    echo "Waiting"
+    echo "Waiting for webdriver-manger to start listening on port 4444"
   fi
   sleep 1
 done
