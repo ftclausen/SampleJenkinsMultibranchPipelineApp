@@ -210,15 +210,14 @@ def gitCheckout( showInChangelog ) {
   checkout changelog: showInChangelog, scm: [
     $class: 'GitSCM',
     branches: [[ name: env.BRANCH_NAME ]],
-    browser: [ $class: 'Stash', repoUrl: 'ssh://stash.bbpd.io/~fclausen/samplejenkinsmultibranchpipelineapp.git' ],
+    browser: [ $class: 'GitHub', repoUrl: '' ],
     extensions: [
       [ $class: 'CloneOption', noTags: true ],
       [ $class: 'PruneStaleBranch' ],
       [ $class: 'LocalBranch', localBranch: env.BRANCH_NAME ],
     ],
     userRemoteConfigs: [[
-      credentialsId: 'jenkins-stash',
-      url: 'ssh://stash.bbpd.io/~fclausen/samplejenkinsmultibranchpipelineapp.git',
+      url: '',
     ]]
   ]
 }
