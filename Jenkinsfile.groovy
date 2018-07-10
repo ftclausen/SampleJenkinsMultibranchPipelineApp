@@ -16,8 +16,9 @@ envVars = [
 withE2EPod {
   gitCheckout( true )
   recordTestResults(TestType.UNIT) {
-    prepare()
-    unit()
+    sh 'echo "Hello"'
+    // prepare()
+    // unit()
   }
 }
 /*
@@ -70,7 +71,7 @@ def unit() {
   sh '''#!/usr/bin/env bash
     set -e
     source ~/.nvm/nvm.sh
-    ./node_modules/.bin/yarn test
+    ./node_modules/.bin/yarn run test
   '''
 }
 
