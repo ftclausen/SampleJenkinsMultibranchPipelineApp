@@ -88,7 +88,7 @@ def e2e() {
 
 def withE2EPod( block ) {
   clearPodTemplateNames()
-  def podabel = uniquePodLabel('example-pipeline')
+  def podlabel = uniquePodLabel('example-pipeline')
   def jenkinsWorkspace = '/home/jenkins/agent'
 
   podTemplate(
