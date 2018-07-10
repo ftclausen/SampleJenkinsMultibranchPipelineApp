@@ -27,4 +27,6 @@ yarn-error.log*
 
 # Misc
 .DS_Store
->>>>>>> upstream/master
+*.log
+*.out
+
