@@ -1,5 +1,6 @@
 // -*- mode: groovy -*-
 // vim: set filetype=groovy :
+import org.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateAction
 
 enum TestType { UNIT, E2E }
 enum JobState { INPROGRESS, SUCCESS, FAILED }
