@@ -7,14 +7,10 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import ErrorPage from './ErrorPage';
-
-function action() {
-  return {
-    title: 'Demo Error',
-    component: <ErrorPage />,
-  };
-}
-
-export default action;
+// Prettier configuration
+// https://prettier.io/docs/en/configuration.html
+module.exports = {
+  printWidth: 80,
+  singleQuote: true,
+  trailingComma: 'all',
+};

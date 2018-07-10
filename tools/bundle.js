@@ -20,7 +20,11 @@ function bundle() {
         return reject(err);
       }
 
-      console.log(stats.toString(webpackConfig[0].stats));
+      console.info(stats.toString(webpackConfig[0].stats));
+      if (stats.hasErrors()) {
+        return reject(new Error('Webpack compilation errors'));
+      }
+
       return resolve();
     });
   });
