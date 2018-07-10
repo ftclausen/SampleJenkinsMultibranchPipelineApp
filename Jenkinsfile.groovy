@@ -56,7 +56,7 @@ def prepare() {
   # Don't do this in prod - use container images with Node already configured
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
   source ~/.nvm/nvm.sh
-  nvm install 6.11.2
+  nvm install 8.11.3
   npm install
   ./node_modules/.bin/webdriver-manager update
   nohup ./node_modules/.bin/webdriver-manager start &
