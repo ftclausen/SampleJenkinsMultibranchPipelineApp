@@ -104,19 +104,19 @@ def withE2EPod( block ) {
         envVars: [
           containerEnvVar(key: 'DISPLAY', value: ':99.0'),
           containerEnvVar(key: 'LD_LIBRARY_PATH', value: '/opt/google/chrome/li')
-       ],
-    ]
+        ],
+      )
+    ],
     volumes: [
       // Chrome needs much more than the default 64M shared memory so mount /dev/shm to memory
       emptyDirVolume( mountPath: '/dev/shm', memory: true )
     ]) {
-      node(podLabel) {
-        container('build') {
-          sh 'echo "Hello from a container"'
-        }
+    node(podLabel) {
+      container('build') {
+        sh 'echo "Hello from a container"'
       }
     }
-  )
+  }
 }
 
 // Utils
