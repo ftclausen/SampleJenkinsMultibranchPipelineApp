@@ -139,8 +139,8 @@ def clearPodTemplateNames() {
  * another one with the same label already exists.  Force a unique name for each template.
  */
 def uniquePodLabel( label ) {
-  def today = new Date().format( 'yyyyMMdd' )
-  return "$label-$today-$RUN_UNIQUE_ID"
+  def uuid = UUID.randomUUID().toString().replaceAll( '-', '' ).take( 6 )
+  return "$label-$uuid"
 }
 
 def recordTestResults( TestType testType, Closure block ) {
