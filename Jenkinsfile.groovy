@@ -96,15 +96,12 @@ def withE2EPod( block ) {
     label: podLabel,
     instanceCap: 1,
     nodeUsageMode: 'EXCLUSIVE',
+    workingDir: '/tmp',
     // And add any pod annotations or service account details you may require here
     containers: [
       containerTemplate(
         name: 'build',
         image: 'selenium/standalone-chrome',
-        envVars: [
-          containerEnvVar(key: 'DISPLAY', value: ':99.0'),
-          containerEnvVar(key: 'LD_LIBRARY_PATH', value: '/opt/google/chrome')
-        ],
       )
     ],
     volumes: [
