@@ -99,7 +99,7 @@ def withE2EPod( block ) {
     // And add any pod annotations or service account details you may require here
     containers: [
       containerTemplate(
-        name: 'build',
+        name: 'markhobson/node-chrome',
         image: 'ubuntu',
         envVars: [
           containerEnvVar(key: 'DISPLAY', value: ':99.0'),
