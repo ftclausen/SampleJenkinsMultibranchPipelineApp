@@ -102,7 +102,8 @@ def withE2EPod( block ) {
       containerTemplate(
         name: 'build',
         image: 'selenium/standalone-chrome',
-      )
+      ),
+      containerTemplate(name: 'jnlp', image: 'jenkins/jnlp-slave:3.10-1-alpine', workingDir: '/tmp', args: '${computer.jnlpmac} ${computer.name}'),
     ],
     volumes: [
       // Chrome needs much more than the default 64M shared memory so mount /dev/shm to memory
