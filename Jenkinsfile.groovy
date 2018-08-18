@@ -100,10 +100,10 @@ def withE2EPod( block ) {
     containers: [
       containerTemplate(
         name: 'build',
-        image: 'markhobson/node-chrome',
+        image: 'ubuntu',
         envVars: [
           containerEnvVar(key: 'DISPLAY', value: ':99.0'),
-          containerEnvVar(key: 'LD_LIBRARY_PATH', value: '/opt/google/chrome/li')
+          containerEnvVar(key: 'LD_LIBRARY_PATH', value: '/opt/google/chrome')
         ],
       )
     ],
