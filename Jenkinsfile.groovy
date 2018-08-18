@@ -99,8 +99,8 @@ def withE2EPod( block ) {
     // And add any pod annotations or service account details you may require here
     containers: [
       containerTemplate(
-        name: 'markhobson/node-chrome',
-        image: 'ubuntu',
+        name: 'build',
+        image: 'selenium/node-chrome',
         envVars: [
           containerEnvVar(key: 'DISPLAY', value: ':99.0'),
           containerEnvVar(key: 'LD_LIBRARY_PATH', value: '/opt/google/chrome')
