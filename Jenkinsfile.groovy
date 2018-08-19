@@ -97,21 +97,12 @@ def withE2EPod( block ) {
     nodeUsageMode: 'EXCLUSIVE',
     workingDir: '/tmp',
     // And add any pod annotations or service account details you may require here
-    containers: [
-      containerTemplate(
-        name: 'build',
-        image: 'selenium/standalone-chrome',
-      ),
-      containerTemplate(name: 'jnlp', image: 'jenkins/jnlp-slave:3.10-1-alpine', workingDir: '/tmp', args: '${computer.jnlpmac} ${computer.name}'),
-    ],
     volumes: [
       // Chrome needs much more than the default 64M shared memory so mount /dev/shm to memory
       emptyDirVolume( mountPath: '/dev/shm', memory: true )
     ]) {
     node(podLabel) {
-      container('build') {
         sh 'echo "Hello from a container with jenkins user ID being $(id jenkins)"'
-      }
     }
   }
 }
