@@ -89,7 +89,6 @@ def e2e() {
 def withE2EPod( block ) {
   clearPodTemplateNames()
   def podLabel = uniquePodLabel('example-pipeline')
-  def jenkinsWorkspace = '/home/jenkins/agent'
 
   podTemplate(
     name: podLabel,
@@ -111,7 +110,7 @@ def withE2EPod( block ) {
     ]) {
     node(podLabel) {
       container('build') {
-        sh 'echo "Hello from a container"'
+        sh 'echo "Hello from a container with jenkins user ID being $(id jenkins)"'
       }
     }
   }
